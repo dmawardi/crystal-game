@@ -2,3 +2,11 @@
     border-color: black;
     border-style: dotted;
 }
+
+.targetAndCurrentCard {
+    height: 100%;
+}
+
+.targetAndCurrentItem {
+    height: 50%;
+}
