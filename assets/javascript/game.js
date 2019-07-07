@@ -2,14 +2,14 @@
 $(document).ready(function () {
     // Declare variables
     var targetCounter = 200;
-    var currentCounter = -1;
+    var currentCounter = 0;
     var wins = 0;
     var loss = 0;
-
+    var imageAddArray = ['/asset']
 
     var gemBar = $('.gemBar');
 
-    
+    //  Function List
 
     function startNewMatch() {
         // Randomize target counter
@@ -22,12 +22,7 @@ $(document).ready(function () {
         resetAndRandomGems();
 
     }
-
-    // Create function to randomize and fill gem
-
     // Create function to randomize images
-
-
 
     // Generate Gems and socket into the inventory with values
     function resetAndRandomGems() {
@@ -65,7 +60,8 @@ $(document).ready(function () {
         }
     }
 
-
+    // Start of Arguments and event handlers
+    startNewMatch();
 
 
     $('.gem-image').on('click', function () {
@@ -79,14 +75,22 @@ $(document).ready(function () {
 
         // Check if current counter is over or below
         if (currentCounter > targetCounter) {
+            // Increment losses
             loss++;
             console.log('Overshot! You lose! losses: ' + loss);
+
+            // Reset Game
+            startNewMatch();
 
         }
         // If the counter meets the target
         else if (currentCounter === targetCounter) {
+            // Increment wins
             win++;
             console.log('You win! wins: ' + wins);
+
+            // Reset Game
+            startNewMatch();
 
         }
 
