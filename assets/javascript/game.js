@@ -5,7 +5,14 @@ $(document).ready(function () {
     var currentCounter = 0;
     var wins = 0;
     var loss = 0;
-    var imageAddArray = ['/asset']
+    var imageAddArray = ['assets/images/emerald_noBG.PNG', 'assets/images/miridium_noBG.PNG',
+        'assets/images/ruby_noBG.PNG', 'assets/images/sapphire_noBG.PNG', 'assets/images/topaz_noBG.PNG']
+    var gemBackgroundColor = ['purple', 'blue', 'orange', 'brown', 'green']
+
+    var winsText = $('#winsText');
+    var lossText = $('#lossText');
+    var targetText = $('#targetText');
+    var currentText = $('#currentText');
 
     var gemBar = $('.gemBar');
 
@@ -17,6 +24,10 @@ $(document).ready(function () {
 
         // Reset counter
         currentCounter = 0;
+
+        // Display to user
+        currentText.text(currentCounter);
+        targetText.text(targetCounter);
 
         // Add code to use randomize gems and images function
         resetAndRandomGems();
@@ -49,8 +60,10 @@ $(document).ready(function () {
 
             // Apply attributes
             gemSocket.attr('data-gemValue', gemValue);
-            gemSocket.attr('height', '200px');
-            gemSocket.attr('width', '200px');
+            gemSocket.attr('height', '100px');
+            gemSocket.attr('width', '100px');
+            gemSocket.attr('src', imageAddArray[i]);
+            gemSocket.attr('style', 'background-color: #161515;');
 
 
             console.log(gemSocket.attr('data-gemValue'));
@@ -73,11 +86,16 @@ $(document).ready(function () {
         console.log('currentCounter:' + currentCounter);
         console.log('increased by: ' + increaseValue);
 
+        
+        currentText.text = currentCounter;
+
         // Check if current counter is over or below
         if (currentCounter > targetCounter) {
             // Increment losses
             loss++;
             console.log('Overshot! You lose! losses: ' + loss);
+
+            lossText.text(loss);
 
             // Reset Game
             startNewMatch();
@@ -88,6 +106,7 @@ $(document).ready(function () {
             // Increment wins
             win++;
             console.log('You win! wins: ' + wins);
+            winsText.text(win);
 
             // Reset Game
             startNewMatch();
