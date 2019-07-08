@@ -25,6 +25,8 @@ $(document).ready(function () {
         // Reset counter
         currentCounter = 0;
 
+
+
         // Display to user
         currentText.text(currentCounter);
         targetText.text(targetCounter);
@@ -45,10 +47,6 @@ $(document).ready(function () {
             // Declare Variables
             var gemSocket = $('<img>');
             var gemValue = 0;
-
-
-            console.log('gemsocket:' + gemSocket);
-            console.log('index:' + i);
 
             // Add class for event handler
             gemSocket.addClass('gem-image');
@@ -85,12 +83,13 @@ $(document).ready(function () {
 
         console.log('currentCounter:' + currentCounter);
         console.log('increased by: ' + increaseValue);
+        console.log('target counter: '+targetCounter);
 
-        
-        currentText.text = currentCounter;
+
+        currentText.text(currentCounter);
 
         // Check if current counter is over or below
-        if (currentCounter > targetCounter) {
+        if (parseInt(currentCounter) > parseInt(targetCounter)) {
             // Increment losses
             loss++;
             console.log('Overshot! You lose! losses: ' + loss);
