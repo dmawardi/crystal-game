@@ -78,10 +78,14 @@ $(document).ready(function () {
     startBtn.on('click', function() {
         messageText.text('Game has begun!');
         startNewMatch();
+        
+
     });
 
+    // startNewMatch();
+
     // Event handler for clicked gem images
-    $('.gem-image').on('click', function () {
+    $('body').on('click', '.gem-image', function () {
         // Get data-gemValue and add to counter
         var increaseValue = $(this).attr('data-gemValue')
 
@@ -109,7 +113,7 @@ $(document).ready(function () {
         // If the counter meets the target
         else if (currentCounter === targetCounter) {
             // Increment wins
-            win++;
+            wins++;
             console.log('You win! wins: ' + wins);
             winsText.text(win);
 
