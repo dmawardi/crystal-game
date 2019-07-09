@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     function startNewMatch() {
         // Randomize target counter
-        targetCounter = Math.floor(Math.random() * 150) + 1;
+        targetCounter = Math.floor(Math.random() * 150) + 40;
 
         // Reset counter
         currentCounter = 0;
@@ -55,7 +55,7 @@ $(document).ready(function () {
             gemSocket.addClass('img-thumbnail');
 
             // Get random value for gem
-            gemValue = Math.floor(Math.random() * 50);
+            gemValue = Math.floor(Math.random() * 30);
 
             // Apply attributes
             gemSocket.attr('data-gemValue', gemValue);
@@ -115,7 +115,7 @@ $(document).ready(function () {
             // Increment wins
             wins++;
             console.log('You win! wins: ' + wins);
-            winsText.text(win);
+            winsText.text(wins);
 
             // Reset Game
             startNewMatch();
