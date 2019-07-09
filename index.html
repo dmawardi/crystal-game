@@ -23,17 +23,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container gameSection">
         <div class="row">
-            <div class="col-4">
-                <div class="card targetAndCurrentCard">
-                    <ul class="list-group list-group-flush targetAndCurrentCard">
-                        <li class="list-group-item targetAndCurrentItem">Target: $<span id="targetText">0</span></li>
-                        <li class="list-group-item targetAndCurrentItem">Current: $<span id="currentText">0</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-8">
+            
+            <div class="col-7">
                 <aside>
                     <h1>Crystal Barter Game</h1>
                     <h3>Objective</h3>
@@ -42,8 +35,19 @@
                     <p>You must get the $ amount exactly. Any amount over and you lose.</p>
                 </aside>
             </div>
+            <div class="col-3">
+                    <div class="card targetAndCurrentCard">
+                        <ul class="list-group list-group-flush targetAndCurrentCard">
+                            <li class="list-group-item targetAndCurrentItem">Target: $<span id="targetText">0</span></li>
+                            <li class="list-group-item targetAndCurrentItem">Current: $<span id="currentText">0</span></li>
+                        </ul>
+                    </div>
+                </div>
+            <div class="col-2 startInfo">
+                <p><span id="messageText">Start Game with button below!</span></p>
+                <button type="button" class="btn btn-info" id="start-btn">Start Game</button>
 
-
+            </div>
 
         </div>
 
@@ -51,7 +55,7 @@
 
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-5">
                 <div class="card">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Wins: <span id="winsText"></span>0</li>
@@ -60,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-7">
                 <div class="container gemBar">
                 </div>
             </div>

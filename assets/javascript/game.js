@@ -13,6 +13,8 @@ $(document).ready(function () {
     var lossText = $('#lossText');
     var targetText = $('#targetText');
     var currentText = $('#currentText');
+    var startBtn = $('#start-btn');
+    var messageText = $('#messageText');
 
     var gemBar = $('.gemBar');
 

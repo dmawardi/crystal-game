@@ -10,3 +10,28 @@
 .targetAndCurrentItem {
     height: 50%;
 }
+
+#start-btn {
+    padding: 15px 15px;
+}
+
+.startInfo {
+    text-align: center;
+    margin: auto;
+}
+
+.gemBar {
+    text-align: center;
+}
+
+aside h1 {
+    text-align: center;
+}
+
+.gameSection {
+    border: solid 1px;
+}
+
+.row {
+    margin: 20px 0;
+}
