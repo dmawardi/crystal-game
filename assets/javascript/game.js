@@ -6,8 +6,7 @@ $(document).ready(function () {
     var wins = 0;
     var loss = 0;
     var imageAddArray = ['assets/images/emerald_noBG.PNG', 'assets/images/miridium_noBG.PNG',
-        'assets/images/ruby_noBG.PNG', 'assets/images/sapphire_noBG.PNG', 'assets/images/topaz_noBG.PNG']
-    var gemBackgroundColor = ['purple', 'blue', 'orange', 'brown', 'green']
+        'assets/images/ruby_noBG.PNG', 'assets/images/sapphire_noBG.PNG', 'assets/images/topaz_noBG.PNG'];
 
     var winsText = $('#winsText');
     var lossText = $('#lossText');
@@ -74,9 +73,14 @@ $(document).ready(function () {
     }
 
     // Start of Arguments and event handlers
-    startNewMatch();
 
+    // Event handler for start button to begin game
+    startBtn.on('click', function() {
+        messageText.text('Game has begun!');
+        startNewMatch();
+    });
 
+    // Event handler for clicked gem images
     $('.gem-image').on('click', function () {
         // Get data-gemValue and add to counter
         var increaseValue = $(this).attr('data-gemValue')
@@ -85,7 +89,7 @@ $(document).ready(function () {
 
         console.log('currentCounter:' + currentCounter);
         console.log('increased by: ' + increaseValue);
-        console.log('target counter: '+targetCounter);
+        console.log('target counter: '+ targetCounter);
 
 
         currentText.text(currentCounter);

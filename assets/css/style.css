@@ -1,14 +1,20 @@
+body {
+    /* Background image from Public Domain Pictures as Geodes Background */
+    background-image: url('../images/geodes-background.jpg');
+    background-repeat: repeat;
+}
+
 .gem-image {
     border-color: black;
     border-style: dotted;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .targetAndCurrentCard {
-    height: 100%;
-}
+    margin-top: auto;
+    margin-bottom: auto;
 
-.targetAndCurrentItem {
-    height: 50%;
 }
 
 #start-btn {
@@ -30,8 +36,16 @@ aside h1 {
 
 .gameSection {
     border: solid 1px;
+    background-color: #CAA472;
+    border-radius: 10px;
 }
 
 .row {
     margin: 20px 0;
+}
+
+.winsAndLossCard,
+.targetAndCurrentCard {
+    text-align: center;
+    font-size: 200%;
 }
