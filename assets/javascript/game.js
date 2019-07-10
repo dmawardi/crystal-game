@@ -14,6 +14,7 @@ $(document).ready(function () {
     var currentText = $('#currentText');
     var startBtn = $('#start-btn');
     var messageText = $('#messageText');
+    var lastIncrement = $('#lastIncrement');
 
     var gemBar = $('.gemBar');
 
@@ -31,6 +32,7 @@ $(document).ready(function () {
         // Display to user
         currentText.text(currentCounter);
         targetText.text(targetCounter);
+        lastIncrement.text('');
 
         // Add code to use randomize gems and images function
         resetAndRandomGems();
@@ -82,8 +84,6 @@ $(document).ready(function () {
 
     });
 
-    // startNewMatch();
-
     // Event handler for clicked gem images
     $('body').on('click', '.gem-image', function () {
         messageText.text('Select next gem to barter');
@@ -99,6 +99,7 @@ $(document).ready(function () {
 
 
         currentText.text(currentCounter);
+        lastIncrement.text('(+'+increaseValue+')');
 
         // Check if current counter is over or below
         if (parseInt(currentCounter) > parseInt(targetCounter)) {

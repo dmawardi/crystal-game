@@ -25,7 +25,7 @@
 <body>
     <div class="container gameSection">
         <div class="row">
-            
+
             <div class="col-7">
                 <aside>
                     <h1>Crystal Barter Game</h1>
@@ -37,13 +37,15 @@
                 </aside>
             </div>
             <div class="col-3 targetAndCurrentCard">
-                    <div class="card">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item targetAndCurrentItem">Target: <br>$<span id="targetText">0</span></li>
-                            <li class="list-group-item targetAndCurrentItem">Current: <br>$<span id="currentText">0</span></li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item targetAndCurrentItem">Target: <br>$<span id="targetText">0</span>
+                        </li>
+                        <li class="list-group-item targetAndCurrentItem">Current: <br>$<span
+                                id="currentText">0</span><span id="lastIncrement"></span></li>
+                    </ul>
                 </div>
+            </div>
             <div class="col-2 startInfo">
                 <p><span id="messageText">Start Game with button below!</span></p>
                 <button type="button" class="btn btn-info" id="start-btn">Start Game</button>
