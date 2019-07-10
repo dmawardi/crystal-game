@@ -108,6 +108,8 @@ $(document).ready(function () {
 
     });
 
+
+
     // Event handler for clicked gem images
     $('body').on('click', '.gem-image', function () {
         messageText.text('Select next gem to barter');
@@ -154,21 +156,15 @@ $(document).ready(function () {
 
     });
 
+    $('.gemBar').on('mouseover', '.gem-image', function () {
+            $(this).css('background-color', 'green');
+        }
 
+    )
 
+    $('.gemBar').on('mouseleave', '.gem-image', function () {
+            $(this).css('background-color', '#161515');
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    )
 })
