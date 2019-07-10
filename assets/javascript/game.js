@@ -9,6 +9,7 @@ $(document).ready(function () {
         'assets/images/ruby_noBG.PNG', 'assets/images/sapphire_noBG.PNG', 'assets/images/topaz_noBG.PNG'
     ];
 
+    // Connect newly declared variables to html IDs/Classes
     var winsText = $('#winsText');
     var lossText = $('#lossText');
     var targetText = $('#targetText');
@@ -19,8 +20,9 @@ $(document).ready(function () {
 
     var gemBar = $('.gemBar');
 
-    //  Function List
 
+    //  Function List
+// Function to begin a new match
     function startNewMatch() {
         // Randomize target counter
         targetCounter = Math.floor(Math.random() * 150) + 40;
@@ -87,11 +89,10 @@ $(document).ready(function () {
             gemSocket.attr('data-gemValue', gemValue);
             gemSocket.attr('height', '100px');
             gemSocket.attr('width', '100px');
-            gemSocket.attr('src', imageAddArray[i]);
             gemSocket.attr('style', 'background-color: #161515;');
 
-
-            console.log(gemSocket.attr('data-gemValue'));
+            // Obtain random image from image array
+            gemSocket.attr('src', imageAddArray[i]);
 
             // Append gemSocket to gemBar
             gemBar.append(gemSocket);
@@ -109,7 +110,6 @@ $(document).ready(function () {
     });
 
 
-
     // Event handler for clicked gem images
     $('body').on('click', '.gem-image', function () {
         messageText.text('Select next gem to barter');
@@ -117,13 +117,10 @@ $(document).ready(function () {
         // Get data-gemValue and add to counter
         var increaseValue = $(this).attr('data-gemValue')
 
+        // Calculate new counter value
         currentCounter = parseInt(currentCounter) + parseInt(increaseValue);
 
-        console.log('currentCounter:' + currentCounter);
-        console.log('increased by: ' + increaseValue);
-        console.log('target counter: ' + targetCounter);
-
-
+        // Display to the user the counter and last increase
         currentText.text(currentCounter);
         lastIncrement.text('(+' + increaseValue + ')');
 
@@ -131,9 +128,9 @@ $(document).ready(function () {
         if (parseInt(currentCounter) > parseInt(targetCounter)) {
             // Increment losses
             loss++;
+
+            // Display to user total losses and lose message
             messageText.text('You lost!');
-
-
             lossText.text(loss);
 
             // Reset Game
@@ -144,8 +141,9 @@ $(document).ready(function () {
         else if (currentCounter === targetCounter) {
             // Increment wins
             wins++;
-            messageText.text('You win!');
 
+            // Display to the user total wins and win message
+            messageText.text('You win!');
             winsText.text(wins);
 
             // Reset Game
@@ -156,6 +154,7 @@ $(document).ready(function () {
 
     });
 
+    // Hover effects for gems
     $('.gemBar').on('mouseover', '.gem-image', function () {
             $(this).css('background-color', 'green');
         }
