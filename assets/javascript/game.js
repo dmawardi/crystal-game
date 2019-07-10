@@ -55,7 +55,7 @@ $(document).ready(function () {
             gemSocket.addClass('img-thumbnail');
 
             // Get random value for gem
-            gemValue = Math.floor(Math.random() * 30);
+            gemValue = Math.floor(Math.random() * 30)+1;
 
             // Apply attributes
             gemSocket.attr('data-gemValue', gemValue);
@@ -86,6 +86,8 @@ $(document).ready(function () {
 
     // Event handler for clicked gem images
     $('body').on('click', '.gem-image', function () {
+        messageText.text('Select next gem to barter');
+
         // Get data-gemValue and add to counter
         var increaseValue = $(this).attr('data-gemValue')
 
@@ -102,7 +104,8 @@ $(document).ready(function () {
         if (parseInt(currentCounter) > parseInt(targetCounter)) {
             // Increment losses
             loss++;
-            console.log('Overshot! You lose! losses: ' + loss);
+            messageText.text('You lost!');
+
 
             lossText.text(loss);
 
@@ -114,7 +117,8 @@ $(document).ready(function () {
         else if (currentCounter === targetCounter) {
             // Increment wins
             wins++;
-            console.log('You win! wins: ' + wins);
+            messageText.text('You win!');
+
             winsText.text(wins);
 
             // Reset Game
