@@ -6,7 +6,8 @@ $(document).ready(function () {
     var wins = 0;
     var loss = 0;
     var imageAddArray = ['assets/images/emerald_noBG.PNG', 'assets/images/miridium_noBG.PNG',
-        'assets/images/ruby_noBG.PNG', 'assets/images/sapphire_noBG.PNG', 'assets/images/topaz_noBG.PNG'];
+        'assets/images/ruby_noBG.PNG', 'assets/images/sapphire_noBG.PNG', 'assets/images/topaz_noBG.PNG'
+    ];
 
     var winsText = $('#winsText');
     var lossText = $('#lossText');
@@ -38,8 +39,28 @@ $(document).ready(function () {
         resetAndRandomGems();
 
     }
-    // Create function to randomize images
+    // Function to shuffle array of images
+    function shuffle(array) {
+        var currentIndex = array.length;
+        var temporaryValue;
+        var randomIndex;
 
+        // While the index is above 0
+        while (currentIndex !== 0) {
+
+            // Uses Math.Random to generate random number between 0 and current index: randomIndex
+            randomIndex = Math.floor(Math.random() * currentIndex);
+
+            // Decrease index/counter
+            currentIndex -= 1
+
+            // Swap value from current index of loop with one at random index
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    }
     // Generate Gems and socket into the inventory with values
     function resetAndRandomGems() {
         // Reset gems in bar
@@ -51,13 +72,16 @@ $(document).ready(function () {
             var gemSocket = $('<img>');
             var gemValue = 0;
 
+            // Shuffles image array for randomization
+            shuffle(imageAddArray);
+
             // Add class for event handler
             gemSocket.addClass('gem-image');
             // Add Bootstrap Class
             gemSocket.addClass('img-thumbnail');
 
             // Get random value for gem
-            gemValue = Math.floor(Math.random() * 30)+1;
+            gemValue = Math.floor(Math.random() * 30) + 1;
 
             // Apply attributes
             gemSocket.attr('data-gemValue', gemValue);
@@ -77,10 +101,10 @@ $(document).ready(function () {
     // Start of Arguments and event handlers
 
     // Event handler for start button to begin game
-    startBtn.on('click', function() {
+    startBtn.on('click', function () {
         messageText.text('Game has begun!');
         startNewMatch();
-        
+
 
     });
 
@@ -95,11 +119,11 @@ $(document).ready(function () {
 
         console.log('currentCounter:' + currentCounter);
         console.log('increased by: ' + increaseValue);
-        console.log('target counter: '+ targetCounter);
+        console.log('target counter: ' + targetCounter);
 
 
         currentText.text(currentCounter);
-        lastIncrement.text('(+'+increaseValue+')');
+        lastIncrement.text('(+' + increaseValue + ')');
 
         // Check if current counter is over or below
         if (parseInt(currentCounter) > parseInt(targetCounter)) {
