@@ -25,7 +25,7 @@ If the user goes over the value, they have lost the round. If the user achieves 
 
 * **Dannar Mawardi** - *Initial work* - [GitHub IO](https://dmawardi.github.io)
 
-See also the list of [contributors](https://github.com/dmawardi/Gipher/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/dmawardi/crystal-game/contributors) who participated in this project.
 
 ## License
 
